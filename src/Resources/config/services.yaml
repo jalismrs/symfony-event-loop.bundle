@@ -4,3 +4,5 @@ services:
     
     event_loop.loop_event_subscriber:
         class: 'Jalismrs\EventLoopBundle\LoopEventSubscriber'
+
+    Jalismrs\EventLoopBundle\LoopEventSubscriber: '@event_loop.loop_event_subscriber'
