@@ -1,0 +1,6 @@
+services:
+    _defaults:
+        public: false
+    
+    event_loop.loop_event_subscriber:
+        class: 'Jalismrs\EventLoopBundle\LoopEventSubscriber'
