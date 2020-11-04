@@ -2,14 +2,14 @@
 /** @noinspection EmptyClassInspection */
 declare(strict_types = 1);
 
-namespace Jalismrs\EventLoopBundle;
+namespace Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event;
 
 use Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * Class LoopFinishEvent
  *
- * @package Jalismrs\EventLoopBundle
+ * @package Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event
  *
  * @codeCoverageIgnore
  */

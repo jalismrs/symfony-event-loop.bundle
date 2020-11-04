@@ -1,14 +1,17 @@
 <?php
 declare(strict_types = 1);
 
-namespace Jalismrs\EventLoopBundle;
+namespace Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\EventSubscriber;
 
-use Jalismrs\EventBundle\ConsoleEventSubscriberAbstract;
+use Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopAdvanceEvent;
+use Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopFinishEvent;
+use Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopStartEvent;
+use Jalismrs\Symfony\Common\ConsoleEventSubscriberAbstract;
 
 /**
  * Class LoopEventSubscriber
  *
- * @package Jalismrs\EventLoopBundle
+ * @package Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\EventSubscriber
  */
 class LoopEventSubscriber extends
     ConsoleEventSubscriberAbstract
@@ -18,6 +21,8 @@ class LoopEventSubscriber extends
      *
      * @static
      * @return string[]
+     *
+     * @codeCoverageIgnore
      */
     public static function getSubscribedEvents() : array
     {
@@ -31,9 +36,9 @@ class LoopEventSubscriber extends
     /**
      * onLoopAdvance
      *
-     * @param \Jalismrs\EventLoopBundle\LoopAdvanceEvent $event
+     * @param \Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopAdvanceEvent $event
      *
-     * @return \Jalismrs\EventLoopBundle\LoopAdvanceEvent
+     * @return \Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopAdvanceEvent
      */
     public function onLoopAdvance(
         LoopAdvanceEvent $event
@@ -56,9 +61,14 @@ class LoopEventSubscriber extends
      */
     public function isActive() : bool
     {
-        $isActive = parent::isActive();
-        
-        return $isActive
+        /**
+         * NOTE:
+         *
+         * porgress bars are displayed on stderr
+         * BUT we do not want then to be displayed in scheduled tasks
+         * SO we use '-vv' instead of '-vvv' and add this condition
+         */
+        return parent::isActive()
             &&
             $this
                 ->getStyle()
@@ -68,9 +78,9 @@ class LoopEventSubscriber extends
     /**
      * onLoopFinish
      *
-     * @param \Jalismrs\EventLoopBundle\LoopFinishEvent $event
+     * @param \Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopFinishEvent $event
      *
-     * @return \Jalismrs\EventLoopBundle\LoopFinishEvent
+     * @return \Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopFinishEvent
      */
     public function onLoopFinish(
         LoopFinishEvent $event
@@ -87,9 +97,9 @@ class LoopEventSubscriber extends
     /**
      * onLoopStart
      *
-     * @param \Jalismrs\EventLoopBundle\LoopStartEvent $event
+     * @param \Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopStartEvent $event
      *
-     * @return \Jalismrs\EventLoopBundle\LoopStartEvent
+     * @return \Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopStartEvent
      */
     public function onLoopStart(
         LoopStartEvent $event

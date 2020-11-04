@@ -1,14 +1,14 @@
 <?php
 declare(strict_types = 1);
 
-namespace Jalismrs\EventLoopBundle;
+namespace Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event;
 
 use Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * Class LoopAdvanceEvent
  *
- * @package App\Event
+ * @package Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event
  *
  * @codeCoverageIgnore
  */
@@ -21,16 +21,16 @@ final class LoopAdvanceEvent extends
      * @var int
      */
     private int $steps;
-
+    
     /**
      * LoopAdvanceEvent constructor.
      *
-     * @param int $steps
+     * @param int|null $steps
      */
     public function __construct(
-        int $steps = 1
+        int $steps = null
     ) {
-        $this->steps = $steps;
+        $this->steps = $steps ?? 1;
     }
 
     /**

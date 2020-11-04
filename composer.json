@@ -8,7 +8,7 @@
   ],
   "autoload" : {
     "psr-4" : {
-      "Jalismrs\\EventLoopBundle\\" : "src"
+      "Jalismrs\\Symfony\\Bundle\\JalismrsLoopEventBundle\\" : "src"
     }
   },
   "autoload-dev" : {
@@ -19,10 +19,9 @@
   "config" : {
     "sort-packages" : true
   },
-  "description" : "API Throttler Symfony bundle helps you throttle API calls using a persistent token bucket algorithm",
+  "description" : "Adds loop events with their subscriber",
   "license": "MIT",
-  "minimum-stability": "dev",
-  "name" : "jalismrs/symfony-event-loop.bundle",
+  "name" : "jalismrs/symfony.bundle.event.loop",
   "require-dev" : {
     "composer/package-versions-deprecated" : "*",
     "phpunit/phpunit" : "9.4.2",
@@ -30,7 +29,7 @@
   },
   "require" : {
     "php" : "^7.4",
-    "jalismrs/symfony-event.bundle" : "^1.1.0",
+    "jalismrs/symfony.common.event-subscriber" : "^1.0.0",
     "symfony/config" : "^5.0",
     "symfony/event-dispatcher-contracts" : "^2.2.0",
     "symfony/http-kernel" : "^5.0",
@@ -38,10 +37,10 @@
   },
   "support" : {
     "email" : "dev@jalis.fr",
-    "issues" : "https://github.com/jalismrs/symfony-event-loop.bundle/issues",
-    "wiki" : "https://github.com/jalismrs/symfony-event-loop.bundle/wiki",
-    "source" : "https://github.com/jalismrs/symfony-event-loop.bundle",
-    "docs" : "https://github.com/jalismrs/symfony-event-loop.bundle"
+    "issues" : "https://github.com/jalismrs/symfony.bundle.event.loop/issues",
+    "wiki" : "https://github.com/jalismrs/symfony.bundle.event.loop/wiki",
+    "source" : "https://github.com/jalismrs/symfony.bundle.event.loop",
+    "docs" : "https://github.com/jalismrs/symfony.bundle.event.loop"
   },
   "type" : "symfony-bundle"
 }
