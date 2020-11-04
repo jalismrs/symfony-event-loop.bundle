@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace Jalismrs\EventLoopBundle\DependencyInjection;
+namespace Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
@@ -9,11 +9,11 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;
 
 /**
- * Class EventLoopExtension
+ * Class JalismrsLoopEventExtension
  *
- * @package Jalismrs\EventLoopBundle\DependencyInjection
+ * @package Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\DependencyInjection
  */
-class EventLoopExtension extends
+class JalismrsLoopEventExtension extends
     Extension
 {
     /**

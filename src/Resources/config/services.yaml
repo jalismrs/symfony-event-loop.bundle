@@ -3,7 +3,7 @@ services:
         autowire: true
         autoconfigure: true
     
-    event_loop.loop_event_subscriber:
-        class: 'Jalismrs\EventLoopBundle\LoopEventSubscriber'
+    jalismrs_event_loop.loop_event_subscriber:
+        class: 'Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\EventSubscriber\LoopEventSubscriber'
 
-    Jalismrs\EventLoopBundle\LoopEventSubscriber: '@event_loop.loop_event_subscriber'
+    Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\EventSubscriber\LoopEventSubscriber: '@jalismrs_event_loop.loop_event_subscriber'
