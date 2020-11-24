@@ -19,7 +19,7 @@
   "config" : {
     "sort-packages" : true
   },
-  "description" : "Adds loop events with their subscriber",
+  "description" : "Adds loop events with their listener",
   "license": "MIT",
   "name" : "jalismrs/symfony.bundle.event.loop",
   "require-dev" : {
@@ -29,7 +29,7 @@
   },
   "require" : {
     "php" : "^7.4",
-    "jalismrs/symfony.common.event-subscriber" : "^1.0.0",
+    "jalismrs/symfony.common.event" : "^1.0.0",
     "symfony/config" : "^5.0",
     "symfony/event-dispatcher-contracts" : "^2.2.0",
     "symfony/http-kernel" : "^5.0",

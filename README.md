@@ -1,6 +1,6 @@
 # symfony.bundle.event.loop
 
-Adds loop events with their subscriber
+Adds loop events with their listener
 
 ## Test
 
@@ -9,7 +9,7 @@ Adds loop events with their subscriber
 coverage reports will be available in `var/coverage`
 
 ## Use
-EventSubscriber is assumed to be active and configured
+EventListener is assumed to be active and configured
 ```php
 use Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopAdvanceEvent;
 use Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopFinishEvent;
