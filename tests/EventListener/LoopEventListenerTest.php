@@ -1,9 +1,9 @@
 <?php
 declare(strict_types = 1);
 
-namespace Tests\EventSubscriber;
+namespace Tests\EventListener;
 
-use Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\EventSubscriber\LoopEventSubscriber;
+use Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\EventListener\LoopEventListener;
 use Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopFinishEvent;
 use Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopAdvanceEvent;
 use Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopStartEvent;
@@ -12,13 +12,13 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
- * Class LoopEventSubscriberTest
+ * Class LoopEventListenerTest
  *
- * @package Tests\EventSubscriber
+ * @package Tests\EventListener
  *
- * @covers \Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\EventSubscriber\LoopEventSubscriber
+ * @covers \Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\EventListener\LoopEventListener
  */
-class LoopEventSubscriberTest extends
+class LoopEventListenerTest extends
     TestCase
 {
     /**
@@ -138,12 +138,12 @@ class LoopEventSubscriberTest extends
     /**
      * createSUT
      *
-     * @return \Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\EventSubscriber\LoopEventSubscriber
+     * @return \Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\EventListener\LoopEventListener
      */
-    private function createSUT() : LoopEventSubscriber
+    private function createSUT() : LoopEventListener
     {
         // arrange
-        $systemUnderTest = new LoopEventSubscriber();
+        $systemUnderTest = new LoopEventListener();
     
         // expect
         $this->mockStyle
@@ -152,7 +152,6 @@ class LoopEventSubscriberTest extends
             ->willReturn(129);
     
         // act
-        $systemUnderTest->activate();
         $systemUnderTest->setStyle($this->mockStyle);
         
         return $systemUnderTest;

@@ -1,38 +1,21 @@
 <?php
 declare(strict_types = 1);
 
-namespace Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\EventSubscriber;
+namespace Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\EventListener;
 
 use Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopAdvanceEvent;
 use Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopFinishEvent;
 use Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\Event\LoopStartEvent;
-use Jalismrs\Symfony\Common\ConsoleEventSubscriberAbstract;
+use Jalismrs\Symfony\Common\ConsoleEventListenerAbstract;
 
 /**
- * Class LoopEventSubscriber
+ * Class LoopEventListener
  *
- * @package Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\EventSubscriber
+ * @package Jalismrs\Symfony\Bundle\JalismrsLoopEventBundle\EventListener
  */
-class LoopEventSubscriber extends
-    ConsoleEventSubscriberAbstract
+class LoopEventListener extends
+    ConsoleEventListenerAbstract
 {
-    /**
-     * getSubscribedEvents
-     *
-     * @static
-     * @return string[]
-     *
-     * @codeCoverageIgnore
-     */
-    public static function getSubscribedEvents() : array
-    {
-        return [
-            LoopAdvanceEvent::class => 'onLoopAdvance',
-            LoopFinishEvent::class  => 'onLoopFinish',
-            LoopStartEvent::class   => 'onLoopStart',
-        ];
-    }
-    
     /**
      * onLoopAdvance
      *
@@ -68,9 +51,7 @@ class LoopEventSubscriber extends
          * BUT we do not want then to be displayed in scheduled tasks
          * SO we use '-vv' instead of '-vvv' and add this condition
          */
-        return parent::isActive()
-            &&
-            $this
+        return $this
                 ->getStyle()
                 ->getVerbosity() > 128;
     }
